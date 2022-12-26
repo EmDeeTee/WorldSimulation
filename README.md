@@ -21,3 +21,6 @@ All living entities are defined in `creatures.json` file that should be in the p
 Main simulation configuration happens in `config.json` file that should be in the program's working direcotry.
 1. "TickSpeedMs" - Defines how fast the simulation goes.
 2. "Verbose" - Prints additional info every tick. Might affect performance on high simulation speeds.
+
+# GoDLang Console
+Enlighten:[Creature UUID] - Enlightens a creature, making it realise that it's in a simulation.
