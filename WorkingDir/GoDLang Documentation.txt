@@ -1,0 +1,8 @@
+GetBreedPop:[Creature breed name]
+GetLimbs:[Creature breed name]
+ListCreaturesBreed:[Creature breed name]
+ListAllCreatures
+Kill:[Creature UUID]
+StartDisaster:[Plague]:[Name]:[Severity]
+Enlighten:[Creature UUID]
+Devastate:[Ammount]

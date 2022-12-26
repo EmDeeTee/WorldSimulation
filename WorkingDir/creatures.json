@@ -1,0 +1,28 @@
+{
+  "Human": {
+    "HP": 100,
+    "LifeExpectancy": 80,
+    "BreedSpeed": 10,
+    "BreedCooldown": 5,
+    "BreedAge": 18,
+    "MaxBreedAge": 50,
+    "Size": 180,
+    "Limbs": {
+      "Name": "Arm",
+      "HP": 10
+    }
+  },
+  "Fly": {
+    "HP": 1,
+    "LifeExpectancy": 5,
+    "BreedSpeed": 300,
+    "BreedCooldown": 1,
+    "BreedAge": 1,
+    "Size": 2,
+    "MaxBreedAge": 5,
+    "Limbs": {
+      "Name": "Head",
+      "HP": 1
+    }
+  }
+}
