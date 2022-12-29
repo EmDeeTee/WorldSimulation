@@ -1,7 +1,6 @@
-Unique creature names. Possible defined in the json file.
 Fix crash when adding a non-existant creature.
-Add command for adding world devastation.
 Add random plagues.
 make it, so devastation can occur randomly, based out of current World pop
-make it, so if a creature has less than 5% of it's base HP it surely dies
 make a command for removng world devastation
+Add relationships (Like Parents, friends, strangers etc.)
+add traits to creatures. So that some creatures are more aggressive for ex.

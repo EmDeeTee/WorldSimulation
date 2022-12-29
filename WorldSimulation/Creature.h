@@ -19,6 +19,7 @@ public:
 	static Creature CreateCreature(std::string name, int age, bool isFemale);
 
 	Creature(std::string breedName, int age, bool isFemale);
+	Creature();
 	void Kill();
 
 	static Creature Find(std::string uuid);
@@ -44,6 +45,8 @@ public:
 	int BreedCooldownCurrent;
 	int BreedAge; // At what age it's allowed to breed
 	int MaxBreedAge; //At what age the creature stops breeding
+	int Violence; //Percentage of how likely the creature is to attack other creatures
+	int Size; //How big the creature is in cm
 	std::vector<Limb> Limbs; // Creature's limbs
 };
 

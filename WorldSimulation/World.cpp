@@ -89,6 +89,36 @@ void World::DoTick(std::atomic<bool>& stop, int passByTics) {
 			}
 
 			SkipBreeding:
+
+			//Simulate fighting
+			Creature otherCreature;
+			int chanceOfAttack = c.Violence;
+			if (c.Violence == 0) goto SkipFighting;
+			//Make sure to find some other creature. So that the creature won't fight itself
+			//But for some reason that I can't explain, sometimes it selects itself anyway ¯\_(-_-)_/¯
+			while (c.uuid != otherCreature.uuid) {
+				otherCreature = WorldCreatures[Globals::GenerateRandomInt(WorldCreatures.size()-1)];
+			}
+			//If the other creature is of a different breed, then the fight has 2% more chance to happen
+			if (otherCreature.BreedName != c.BreedName) chanceOfAttack += 2;
+			if (chanceOfAttack > Globals::GenerateRandomInt(99) && c.Age > c.BreedAge) {
+
+				//Combat
+				if(IsVerbose()) cout << c.Name + " and " + otherCreature.Name + " are fighting\n";
+				while (true) {
+					int seedOfRandomMichauness = Globals::GenerateRandomInt(19);
+					float damage = (c.Size * static_cast<float>(seedOfRandomMichauness)) / 100;
+					otherCreature.HP -= damage;
+					if (otherCreature.HP < 0) { RemoveCreature(otherCreature); break; }
+
+					seedOfRandomMichauness = Globals::GenerateRandomInt(19);
+					damage = (otherCreature.Size * static_cast<float>(seedOfRandomMichauness)) / 100;
+					c.HP -= damage;
+					if (c.HP < 0) { RemoveCreature(c); break; }
+				} 
+			}
+			SkipFighting:
+
 			//Simulate aging by decreasing HP of the creature. There is 50% chance for decreasing it's HP
 			//by 1% * current World devastation
 			if (Globals::GenerateRandomInt(1) == 1) {
@@ -110,6 +140,7 @@ void World::DoTick(std::atomic<bool>& stop, int passByTics) {
 				if (Globals::GenerateRandomInt(1) == 1) RemoveCreature(c);
 			}
 
+			//Decrement the creature's breed cooldown
 			if (c.BreedCooldownCurrent > 0) {
 				c.BreedCooldownCurrent--;
 			}
@@ -163,6 +194,9 @@ void World::AddCreature(Creature creature) {
 			creature.BreedCooldownMax = it.BreedCooldownMax;
 			creature.BreedCooldownCurrent = it.BreedCooldownMax;
 			creature.MaxBreedAge = it.MaxBreedAge;
+			creature.Violence = it.Violence;
+			creature.Size = it.Size;
+			creature.Name = it.Name;
 		}
 	}
 	

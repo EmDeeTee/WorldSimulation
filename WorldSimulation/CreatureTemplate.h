@@ -8,7 +8,8 @@
 class CreatureTemplate {
 public:
 	CreatureTemplate(std::string forBreed, std::string name, 
-		int hp, int lifeExpectancy, int breedSpeed, int breedCooldown, int breedAge, int maxBreedAge);
+		int hp, int lifeExpectancy, int breedSpeed, int breedCooldown, int breedAge, int maxBreedAge,
+	int violence, int size);
 
 	static std::vector<CreatureTemplate> Templates;
 
@@ -20,6 +21,8 @@ public:
 	int BreedCooldownMax;
 	int BreedAge; 
 	int MaxBreedAge;
+	int Violence;
+	int Size;
 	std::vector<Limb> Limbs;
 };
 

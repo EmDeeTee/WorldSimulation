@@ -39,9 +39,15 @@ void Creature::ReadCreaturesFile() {
             int BreedCooldown = Data[element.key()]["BreedCooldown"];
             int BreedAge = Data[element.key()]["BreedAge"];
             int MaxBreedAge = Data[element.key()]["MaxBreedAge"];
+            int Violence = Data[element.key()]["Violence"];
+            int Size = Data[element.key()]["Size"];
 
-            CreatureTemplate::Templates.push_back(CreatureTemplate(element.key(), "",
-                baseHp, LifeExpectancy, BreedSpeed, BreedCooldown, BreedAge, MaxBreedAge));
+            //Get a random name from the "Names" array
+            std::string Name = Data[element.key()]["Names"][Globals::GenerateRandomInt(Data[element.key()]["Names"].size() - 1)];
+
+            CreatureTemplate::Templates.push_back(CreatureTemplate(element.key(), Name,
+                baseHp, LifeExpectancy, BreedSpeed, BreedCooldown, BreedAge, MaxBreedAge, Violence,
+                Size));
         }
     }
 
@@ -76,6 +82,10 @@ Creature::Creature(std::string breedName, int age, bool isFemale) {
     this->BreedName = breedName;
     this->Age = age;
     this->IsFemale = isFemale;
+}
+
+Creature::Creature()
+{
 }
 
 void Creature::Kill() {

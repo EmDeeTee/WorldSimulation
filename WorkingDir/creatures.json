@@ -7,10 +7,12 @@
     "BreedAge": 18,
     "MaxBreedAge": 50,
     "Size": 180,
+    "Violence": 1,
     "Limbs": {
       "Name": "Arm",
       "HP": 10
-    }
+    },
+    "Names": ["Kok", "Sos", "Piep", "Cep", "Prop", "Kuk"]
   },
   "Fly": {
     "HP": 1,
@@ -18,11 +20,13 @@
     "BreedSpeed": 300,
     "BreedCooldown": 1,
     "BreedAge": 1,
-    "Size": 2,
     "MaxBreedAge": 5,
+    "Size": 2,
+    "Violence": 0,
     "Limbs": {
       "Name": "Head",
       "HP": 1
-    }
+    },
+    "Names": [ "Fly" ]
   }
 }
