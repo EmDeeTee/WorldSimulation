@@ -15,7 +15,15 @@ Devastation slows down breeding <br> <br>
 See World.cpp for logic
 
 # Defining Creatures
-All living entities are defined in `creatures.json` file that should be in the program's working directory. See Creature.h for info about their attributes.
+All living entities are defined in `creatures.json` file that should be in the program's working directory. See Creature.h for info about their attributes. <br>
+Adding a creature attribute: 
+1. Add the new attribute to `creatures.json`
+2. Add it as a member of `CreatureTemplate` class
+3. Add it as a parameter for `CreatureTemplate` constructor
+4. Add it to the body of the `CreatureTemplate` constructor
+5. Add it to be read on parsing of the `creatures.json` file in `Creature::ReadCreaturesFile()`
+6. Add the newly read variable as an argument of the `CreatureTemplate` constructor that's getting initialised below.
+7. Add it to `World::AddCreature(Creature)` to make it, so it pulls the data for the created creature from the template
 
 # Config
 Main simulation configuration happens in `config.json` file that should be in the program's working direcotry.
