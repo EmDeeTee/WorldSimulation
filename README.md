@@ -32,3 +32,10 @@ Main simulation configuration happens in `config.json` file that should be in th
 
 # GoDLang Console
 Enlighten:[Creature UUID] - Enlightens a creature, making it realise that it's in a simulation.
+GetBreedPop:[Creature breed name]
+GetLimbs:[Creature breed name]
+ListCreaturesBreed:[Creature breed name]
+ListAllCreatures
+Kill:[Creature UUID]
+StartDisaster:[Plague]:[Name]:[Severity]
+Devastate:[Ammount]
